@@ -10,7 +10,7 @@ $ cmake -G "MinGW Makefiles" CMakeLists.txt
 $ make
 ```
 
-## install a libjk.a library.
+## Install a libjk.a library.
 After make, you can install the library and header file to the release directory.
 ```
 $ cd ./src/build
