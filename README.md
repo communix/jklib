@@ -10,6 +10,18 @@ $ cmake -G "MinGW Makefiles" CMakeLists.txt
 $ make
 ```
 
+## install a libjk.a library.
+After make, you can install the library and header file to the release directory.
+```
+$ cd ./src/build
+$ make install
+[100%] Built target jk
+Install the project...
+-- Install configuration: "Debug"
+-- Installing: C:/Users/jayki/Documents/projects/source/jklib/src/build/../../release/libjk.a
+-- Up-to-date: C:/Users/jayki/Documents/projects/source/jklib/src/build/../../release/libjk.h
+```
+
 ## libjk.a unit test
 The unit_test.exe is built when you build the libjk.a library.
 you can execute the unit_test.exe to run a unit test.
