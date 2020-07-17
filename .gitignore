@@ -1,0 +1,9 @@
+CMakeFiles
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+./document
+*.a
+*.o
+*.bak
+*.exe
