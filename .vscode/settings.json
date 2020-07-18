@@ -1,0 +1,12 @@
+{
+    "debug.allowBreakpointsEverywhere": true,
+    "search.exclude": {
+        "*.a": true,
+        "*.exe": true,
+        "*.in": true,
+        "*.pdf": true,
+        "cmake_install.cmake": true,
+        "CMakeFiles/": true,
+        "release/": true
+    }
+}
