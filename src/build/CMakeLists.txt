@@ -21,6 +21,7 @@ MESSAGE ("Binary directory" ${CMAKE_BINARY_DIR})
 # List up the source files
 SET (SRC_FILES
         ${CMAKE_SOURCE_DIR}/jk_common.c
+        ${CMAKE_SOURCE_DIR}/jk_array.c
     )
 INCLUDE_DIRECTORIES (${CMAKE_SOURCE_DIR}/include)
 
