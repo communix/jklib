@@ -1,0 +1,18 @@
+/**
+ * @file jk_version.h
+ * @brief JKLib version information
+ * @defgroup
+ * @{
+ */
+
+#ifndef __JK_VERSION_H
+#define __JK_VERSION_H
+
+#define VERSION_MAJOR ${PROJECT_VERSION_MAJOR}
+#define VERSION_MINOR ${PROJECT_VERSION_MINOR}
+#define VERSION_PATCH ${PROJECT_VERSION_PATCH}
+#define JKLIB_VERSION_STRING "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}"
+#define JKLIB_VERSION ((${PROJECT_VERSION_MAJOR}<<24) | (${PROJECT_VERSION_MINOR}<<16) | ${PROJECT_VERSION_PATCH})
+
+#endif
+/** @} */

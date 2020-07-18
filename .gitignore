@@ -4,7 +4,6 @@ cmake_install.cmake
 /src/build/*
 !/src/build/CMakeLists.txt
 /release
-*.a
 *.o
 *.bak
 *.exe
