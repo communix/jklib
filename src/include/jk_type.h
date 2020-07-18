@@ -18,4 +18,12 @@ typedef unsigned int uint32_t;
 typedef signed long long int int64_t;
 typedef unsigned long long int uint64_t;
 /** @} */
+
+/**
+ * @def return of the functions
+ * @{
+ */
+#define NO_ERROR        0   ///< No error in this function.
+#define ERROR           -1  ///< Error in this function.
+/** @} */
 #endif //__JK_TYPE_H
