@@ -12,11 +12,13 @@ void tearDown (void) {} /* Is run after every test, put unit clean-up calls here
 
 void test_jklib_version(void)
 {
+    /// version check
     TEST_ASSERT_EQUAL_UINT32_MESSAGE(JKLIB_VERSION, jk_get_version(), "JKLIB version is not matched");
 }
 
 void test_integer_type_size(void)
 {
+    /// interget type size check
     TEST_ASSERT_EQUAL_INT_MESSAGE(1, sizeof(int8_t), "int8_t is not 1 byte");
     TEST_ASSERT_EQUAL_INT_MESSAGE(1, sizeof(uint8_t), "uint8_t is not 1 byte");
     TEST_ASSERT_EQUAL_INT_MESSAGE(2, sizeof(int16_t), "int16_t is not 2 byte");
@@ -29,6 +31,7 @@ void test_integer_type_size(void)
 
 void test_jk_swap_int32(void)
 {
+    /// Swap function unit test
     const int32_t a_origin = 3245234;
     const int32_t b_origin = -54252346;
     const int16_t c_origin = 4623;
@@ -45,12 +48,20 @@ void test_jk_swap_int32(void)
     TEST_ASSERT_EQUAL_INT16_MESSAGE(d_origin, c, "swaped data is not matched");
 }
 
+void test_jk_print_array(void)
+{
+    int32_t test_array[1] = {1};
+    TEST_ASSERT_EQUAL_INT8_MESSAGE(ERROR, jk_print_array(NULL, 1), "Not return ERROR even NULL input");
+    TEST_ASSERT_EQUAL_INT8_MESSAGE(NO_ERROR, jk_print_array(test_array, 1), "ERROR even good condition");
+}
+
 int main()
 {
     UNITY_BEGIN();
     RUN_TEST(test_jklib_version);
     RUN_TEST(test_integer_type_size);
     RUN_TEST(test_jk_swap_int32);
+    RUN_TEST(test_jk_print_array);
     UNITY_END();
     return 1;
 }
