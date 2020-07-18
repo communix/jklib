@@ -8,6 +8,8 @@ SET (PROJECT_VERSION_MINOR 0)
 SET (PROJECT_VERSION_PATCH 1)
 
 MESSAGE (STATUS "Start CMAKE for" ${CMAKE_PROJECT_NAME})
+# Generate version.h
+CONFIGURE_FILE (../include/jk_version.h.in ../include/jk_version.h)
 
 # Define build type - Debug or Release
 SET (CMAKE_BUILD_TYPE Debug)
