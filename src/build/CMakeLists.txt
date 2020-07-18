@@ -35,6 +35,15 @@ ADD_LIBRARY (jk STATIC ${SRC_FILES})
 INSTALL(TARGETS jk DESTINATION ${CMAKE_BINARY_DIR})
 INSTALL(FILES ../include/libjk.h DESTINATION ${CMAKE_BINARY_DIR})
 
+#release
+ADD_CUSTOM_COMMAND(
+    TARGET jk
+    POST_BUILD
+    COMMENT "Release library"
+    WORKING_DIRECTORY ./
+    COMMAND make install
+)
+
 #build unit test
 ADD_CUSTOM_COMMAND(
     TARGET jk
@@ -42,4 +51,14 @@ ADD_CUSTOM_COMMAND(
     COMMENT "Build unit test"
     WORKING_DIRECTORY ../unit_test/
     COMMAND make
+)
+#generate pdf document
+ADD_CUSTOM_COMMAND(
+    TARGET jk
+    POST_BUILD
+    COMMENT "Geneate doxygen document"
+    WORKING_DIRECTORY ../../documents
+    COMMAND doxygen jk_dox_config
+    COMMAND latex/make.bat
+    COMMAND mv latex/refman.pdf ../release/jklib_doc.pdf
 )
