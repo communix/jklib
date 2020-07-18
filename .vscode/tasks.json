@@ -16,6 +16,14 @@
             }
         },
         {
+            "label": "clean",
+            "type": "shell",
+            "command": "make clean",
+            "options": {
+                "cwd": "./src/build"
+            },
+        },
+        {
             "label": "cmake",
             "type": "shell",
             "command": "cmake -G \"MinGW Makefiles\" CMakeLists.txt",

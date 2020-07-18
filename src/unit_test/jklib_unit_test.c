@@ -14,6 +14,7 @@ void test_jklib_version(void)
 {
     TEST_ASSERT_EQUAL_UINT32_MESSAGE(JKLIB_VERSION, jk_get_version(), "JKLIB version is not matched");
 }
+
 void test_integer_type_size(void)
 {
     TEST_ASSERT_EQUAL_INT_MESSAGE(1, sizeof(int8_t), "int8_t is not 1 byte");
@@ -26,11 +27,30 @@ void test_integer_type_size(void)
     TEST_ASSERT_EQUAL_INT_MESSAGE(8, sizeof(uint64_t), "uint64_t is not 8 byte");
 }
 
+void test_jk_swap_int32(void)
+{
+    const int32_t a_origin = 3245234;
+    const int32_t b_origin = -54252346;
+    const int16_t c_origin = 4623;
+    const int16_t d_origin = 6693;
+    int32_t a = a_origin;
+    int32_t b = b_origin;
+    int32_t c = c_origin;
+    int32_t d = d_origin;
+    jk_swap_int32(&a, &b);
+    jk_swap_int32(&c, &d);
+    TEST_ASSERT_EQUAL_INT32_MESSAGE(a_origin, b, "swaped data is not matched");
+    TEST_ASSERT_EQUAL_INT32_MESSAGE(b_origin, a, "swaped data is not matched");
+    TEST_ASSERT_EQUAL_INT16_MESSAGE(c_origin, d, "swaped data is not matched");
+    TEST_ASSERT_EQUAL_INT16_MESSAGE(d_origin, c, "swaped data is not matched");
+}
+
 int main()
 {
     UNITY_BEGIN();
     RUN_TEST(test_jklib_version);
     RUN_TEST(test_integer_type_size);
+    RUN_TEST(test_jk_swap_int32);
     UNITY_END();
     return 1;
 }
