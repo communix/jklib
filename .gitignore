@@ -4,6 +4,8 @@ cmake_install.cmake
 /src/build/*
 !/src/build/CMakeLists.txt
 /release
+/documents/*
+!/documents/jk_dox_config
 *.o
 *.bak
 *.exe
