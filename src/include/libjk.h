@@ -33,5 +33,27 @@ void jk_swap_int32(int32_t *a, int32_t *b);
  */
 int8_t jk_print_array(int32_t *arr, uint32_t length);
 
+/**
+ * @name jk_insert_array
+ * @brief insert element in the array
+ * @param arr array input
+ * @param length length of the input array.
+ * @param pos position of the inserted element
+ * @param value value of the inserted element
+ * @return return ERROR(-1) when the arr is NULL otherwise NO_ERROR(0)
+ */
+int8_t jk_insert_array(int32_t *arr, uint32_t length, uint32_t pos, int32_t value);
+
+/**
+ * @name jk_delete_array
+ * @brief delete element in the array
+ * @param arr array input
+ * @param length length of the input array.
+ * @param pos position of the deleted element
+ * @return return ERROR(-1) when the arr is NULL otherwise NO_ERROR(0)
+ *         or return ERROR(-1) when the pos is equal of greater than length
+ */
+int8_t jk_delete_array(int32_t *arr, uint32_t length, uint32_t pos);
+
 /** @} */
  

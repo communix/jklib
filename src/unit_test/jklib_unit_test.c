@@ -5,6 +5,7 @@
 #include <jk_type.h>
 #include <libjk.h>
 #include <unity.h>
+#include <time.h>
 
 #define JKLIB_VERSION           0x00000001  //00.00.0001
 void setUp (void) {} /* Is run before every test, put unit init calls here. */
@@ -55,6 +56,39 @@ void test_jk_print_array(void)
     TEST_ASSERT_EQUAL_INT8_MESSAGE(NO_ERROR, jk_print_array(test_array, 1), "ERROR even good condition");
 }
 
+void test_jk_insert_array(void)
+{
+    int32_t test_array[20] = {1};
+    int32_t expected_arr[20] = {0, 1};
+    clock_t start_time, end_time;
+    double running_time;
+    // check the return values
+    TEST_ASSERT_EQUAL_INT8_MESSAGE(ERROR, jk_insert_array(NULL, 0, 0, 1), "Not return ERROR even NULL input");
+    TEST_ASSERT_EQUAL_INT8_MESSAGE(NO_ERROR, jk_insert_array(test_array, 1, 0, 0), "Not return ERROR even NULL input");
+    // check new array
+    TEST_ASSERT_EQUAL_INT32_ARRAY_MESSAGE(expected_arr, test_array, 2, "Output array is wrong");
+    // Adding the element at the tail
+    start_time = clock();
+    jk_insert_array(test_array, 2, 2, 2);
+    end_time = clock();
+    printf ("Running time of the jk_insert_array is %f clocks\n", ((double)(end_time - start_time)));
+    expected_arr[2] = 2;
+    TEST_ASSERT_EQUAL_INT32_ARRAY_MESSAGE(expected_arr, test_array, 2, "Output array is wrong");
+}
+
+void test_jk_delete_array(void)
+{
+    int32_t test_array[20] = {0, 1, 2};
+    int32_t expected_arr[2] = {1, 2};
+    // check the return values
+    TEST_ASSERT_EQUAL_INT8_MESSAGE(ERROR, jk_delete_array(NULL, 0, 0), "Not return ERROR even NULL input");
+    TEST_ASSERT_EQUAL_INT8_MESSAGE(ERROR, jk_delete_array(test_array, 3, 3), "Not return ERROR even NULL input");
+    TEST_ASSERT_EQUAL_INT8_MESSAGE(NO_ERROR, jk_delete_array(test_array, 3, 0), "Not return ERROR even NULL input");
+    // check new array
+    jk_delete_array(test_array, 2, 1);
+    TEST_ASSERT_EQUAL_INT32_ARRAY_MESSAGE(expected_arr, test_array, 1, "Output array is wrong");
+}
+
 int main()
 {
     UNITY_BEGIN();
@@ -62,6 +96,8 @@ int main()
     RUN_TEST(test_integer_type_size);
     RUN_TEST(test_jk_swap_int32);
     RUN_TEST(test_jk_print_array);
+    RUN_TEST(test_jk_insert_array);
+    RUN_TEST(test_jk_delete_array);
     UNITY_END();
     return 1;
 }
