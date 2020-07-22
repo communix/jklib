@@ -56,4 +56,32 @@ int8_t jk_insert_array(int32_t *arr, uint32_t length, uint32_t pos, int32_t valu
 int8_t jk_delete_array(int32_t *arr, uint32_t length, uint32_t pos);
 
 /** @} */
- 
+
+/**
+ * @defgroup jk_linked_list functions related to a linked list
+ * @{
+ */
+
+/**
+ * @struct s_ll_node
+ * @brief singly linked list node
+ * @{
+ */
+
+typedef struct s_llist_node
+{
+    int32_t value;                  ///< int32 value of the node
+    struct s_llist_node *next;      ///< pointer of the next node
+} s_llist_node_t;
+/** @} */
+
+/**
+ * @name jk_insert_end_s_linked_list
+ * @brief insert new node at the end of the linked list
+ * @param head head pointer of the current linked list, Set NULL to create new linked list.
+ * @param value value of the new node.
+ * @return header point of the linked list
+ */
+s_llist_node_t *jk_insert_end_s_linked_list(s_llist_node_t * head, int32_t value);
+
+/** @} */

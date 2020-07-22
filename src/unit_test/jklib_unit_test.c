@@ -89,6 +89,16 @@ void test_jk_delete_array(void)
     TEST_ASSERT_EQUAL_INT32_ARRAY_MESSAGE(expected_arr, test_array, 1, "Output array is wrong");
 }
 
+void test_jk_insert_end_s_linked_list(void)
+{
+    s_llist_node_t *list1;
+    list1 = jk_insert_end_s_linked_list(NULL, 125); // First node 125.
+    list1 = jk_insert_end_s_linked_list(list1, 3245); // Second node.
+    // check the return values
+    TEST_ASSERT_EQUAL_INT32_MESSAGE(125, list1->value, "first node value is not matched");
+    TEST_ASSERT_EQUAL_INT32_MESSAGE(3245, list1->next->value, "second node value is not matched");
+}
+
 int main()
 {
     UNITY_BEGIN();
@@ -98,6 +108,7 @@ int main()
     RUN_TEST(test_jk_print_array);
     RUN_TEST(test_jk_insert_array);
     RUN_TEST(test_jk_delete_array);
+    RUN_TEST(test_jk_insert_end_s_linked_list);
     UNITY_END();
     return 1;
 }
