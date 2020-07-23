@@ -99,6 +99,18 @@ void test_jk_insert_end_s_linked_list(void)
     TEST_ASSERT_EQUAL_INT32_MESSAGE(3245, list1->next->value, "second node value is not matched");
 }
 
+void test_jk_print_s_linked_list(void)
+{
+    s_llist_node_t *list1;
+    list1 = jk_insert_end_s_linked_list(NULL, 125); // First node 125.
+    list1 = jk_insert_end_s_linked_list(list1, 3245); // Second node.
+    list1 = jk_insert_end_s_linked_list(list1, 643); // Third node.
+    list1 = jk_insert_end_s_linked_list(list1, 5412); // Fourth node.
+    // check the return values
+    TEST_ASSERT_EQUAL_INT8_MESSAGE(-1, jk_print_s_linked_list(NULL), "NULL input does not return ERROR");
+    TEST_ASSERT_EQUAL_INT8_MESSAGE(0, jk_print_s_linked_list(list1), "Function returns error");
+}
+
 int main()
 {
     UNITY_BEGIN();
@@ -109,6 +121,7 @@ int main()
     RUN_TEST(test_jk_insert_array);
     RUN_TEST(test_jk_delete_array);
     RUN_TEST(test_jk_insert_end_s_linked_list);
+    RUN_TEST(test_jk_print_s_linked_list);
     UNITY_END();
     return 1;
 }

@@ -29,3 +29,22 @@ s_llist_node_t *jk_insert_end_s_linked_list(s_llist_node_t * head, int32_t value
     }
     return head;
 }
+
+int8_t jk_print_s_linked_list(s_llist_node_t * head)
+{
+    if (head == NULL) // Create new linked list
+    {
+        return ERROR;
+    }
+    else
+    {
+        s_llist_node_t *curr_node = head;
+        while (curr_node != NULL)
+        {
+            printf("%d --> ", curr_node->value);
+            curr_node = curr_node->next;
+        }
+        printf("\b\b\b\b   \n");
+    }
+    return NO_ERROR;
+}

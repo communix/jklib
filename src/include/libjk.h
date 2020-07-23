@@ -84,4 +84,11 @@ typedef struct s_llist_node
  */
 s_llist_node_t *jk_insert_end_s_linked_list(s_llist_node_t * head, int32_t value);
 
+/**
+ * @name jk_insert_end_s_linked_list
+ * @brief print the linked list
+ * @param head head pointer of the current linked list.
+ * @return return ERROR(-1) when the head is NULL otherwise NO_ERROR(0)
+ */
+int8_t jk_print_s_linked_list(s_llist_node_t * head);
 /** @} */
