@@ -85,6 +85,14 @@ typedef struct s_llist_node
 s_llist_node_t *jk_insert_end_s_linked_list(s_llist_node_t * head, int32_t value);
 
 /**
+ * @name jk_delete_end_s_linked_list
+ * @brief delete the node at the end of the linked list
+ * @param head head pointer of the current linked list
+ * @return header point of the linked list, it return NULL if the linked list have no node.
+ */
+s_llist_node_t *jk_delete_end_s_linked_list(s_llist_node_t * head);
+
+/**
  * @name jk_insert_end_s_linked_list
  * @brief print the linked list
  * @param head head pointer of the current linked list.

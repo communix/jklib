@@ -111,6 +111,22 @@ void test_jk_print_s_linked_list(void)
     TEST_ASSERT_EQUAL_INT8_MESSAGE(0, jk_print_s_linked_list(list1), "Function returns error");
 }
 
+void test_jk_delete_end_s_linked_list(void)
+{
+    s_llist_node_t *list1;
+    list1 = jk_insert_end_s_linked_list(NULL, 125); // First node 125.
+    list1 = jk_insert_end_s_linked_list(list1, 3245); // Second node.
+    list1 = jk_insert_end_s_linked_list(list1, 643); // Third node.
+    list1 = jk_insert_end_s_linked_list(list1, 5412); // Fourth node.
+    // check the return values
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(NULL, jk_delete_end_s_linked_list(NULL), "NULL input does not return ERROR");
+    list1 = jk_delete_end_s_linked_list(list1);
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(NULL, list1->next->next->next, "Last node is not deleted");
+    list1 = jk_delete_end_s_linked_list(list1);
+    list1 = jk_delete_end_s_linked_list(list1);
+    TEST_ASSERT_EQUAL_UINT32_MESSAGE(NULL, jk_delete_end_s_linked_list(NULL), "All node of the linked list is not detelted");
+}
+
 int main()
 {
     UNITY_BEGIN();
@@ -122,6 +138,7 @@ int main()
     RUN_TEST(test_jk_delete_array);
     RUN_TEST(test_jk_insert_end_s_linked_list);
     RUN_TEST(test_jk_print_s_linked_list);
+    RUN_TEST(test_jk_delete_end_s_linked_list);
     UNITY_END();
     return 1;
 }

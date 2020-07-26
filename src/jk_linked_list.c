@@ -30,6 +30,33 @@ s_llist_node_t *jk_insert_end_s_linked_list(s_llist_node_t * head, int32_t value
     return head;
 }
 
+s_llist_node_t *jk_delete_end_s_linked_list(s_llist_node_t * head)
+{
+    if (head == NULL) // Nothing to delete
+    {
+        return NULL;
+    }
+    else // delete the node at the end of the current linked list
+    {
+        s_llist_node_t *curr_node = head;
+        if (curr_node->next == NULL)
+        { // Delete header.
+            free(head);
+            return NULL;
+        }
+        else
+        {
+            while (curr_node->next->next != NULL)
+            {
+                curr_node = curr_node->next;
+            }
+            free(curr_node->next);
+            curr_node->next = NULL;
+            return head;
+        }
+    }
+}
+
 int8_t jk_print_s_linked_list(s_llist_node_t * head)
 {
     if (head == NULL) // Create new linked list
