@@ -56,4 +56,18 @@ int8_t jk_insert_array(int32_t *arr, uint32_t length, uint32_t pos, int32_t valu
 int8_t jk_delete_array(int32_t *arr, uint32_t length, uint32_t pos);
 
 /** @} */
- 
+
+ /**
+ * @defgroup jk_string functions
+ * @{
+ */
+
+ /**
+ * @name js_string_longest_palindromic
+ * @brief longest palindromic sub array function - Brute Force
+ * @param input input string max lenght is 99.
+ * @return longest palindromic of the input string.
+ */
+char *js_string_longest_palindromic(char *input);
+
+/** @} */

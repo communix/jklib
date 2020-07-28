@@ -89,6 +89,21 @@ void test_jk_delete_array(void)
     TEST_ASSERT_EQUAL_INT32_ARRAY_MESSAGE(expected_arr, test_array, 1, "Output array is wrong");
 }
 
+void test_js_string_longest_palindromic(void)
+{
+    char *input = "";
+    char *expected = "";
+    TEST_ASSERT_EQUAL_STRING_MESSAGE(expected, js_string_longest_palindromic(input), "No character input do not return proper output");
+    input = "a";
+    expected = "a";
+    TEST_ASSERT_EQUAL_STRING_MESSAGE(expected, js_string_longest_palindromic(input), "a input do not return proper output");
+    input = "ab";
+    expected = "a";
+    TEST_ASSERT_EQUAL_STRING_MESSAGE(expected, js_string_longest_palindromic(input), "ab input do not return proper output");
+    input = "abaabdfad";
+    expected = "baab";
+    TEST_ASSERT_EQUAL_STRING_MESSAGE(expected, js_string_longest_palindromic(input), "abaabdfad input do not return proper output");
+}
 int main()
 {
     UNITY_BEGIN();
@@ -98,6 +113,7 @@ int main()
     RUN_TEST(test_jk_print_array);
     RUN_TEST(test_jk_insert_array);
     RUN_TEST(test_jk_delete_array);
+    RUN_TEST(test_js_string_longest_palindromic);
     UNITY_END();
     return 1;
 }
