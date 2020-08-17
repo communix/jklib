@@ -1,4 +1,4 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 3.17)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.16)
 
 PROJECT (libjk)
 #SET (CMAKE_VERBOSE_MAKEFILE true)
@@ -55,12 +55,12 @@ ADD_CUSTOM_COMMAND(
     COMMAND make
 )
 #generate pdf document
-ADD_CUSTOM_COMMAND(
-    TARGET jk
-    POST_BUILD
-    COMMENT "Geneate doxygen document"
-    WORKING_DIRECTORY ../../documents
-    COMMAND doxygen jk_dox_config
-    COMMAND latex/make.bat
-    COMMAND mv latex/refman.pdf ../release/jklib_doc.pdf
-)
+#ADD_CUSTOM_COMMAND(
+#    TARGET jk
+#    POST_BUILD
+#    COMMENT "Geneate doxygen document"
+#    WORKING_DIRECTORY ../../documents
+#    COMMAND doxygen jk_dox_config
+#    COMMAND make latex/Makefile
+#    COMMAND mv latex/refman.pdf ../release/jklib_doc.pdf
+#)
