@@ -89,7 +89,7 @@ void test_jk_delete_array(void)
     TEST_ASSERT_EQUAL_INT32_ARRAY_MESSAGE(expected_arr, test_array, 1, "Output array is wrong");
 }
 
-void test_js_string_longest_palindromic(void)
+void test_jk_string_longest_palindromic(void)
 {
     char *input = "";
     char *expected = "";
@@ -104,16 +104,56 @@ void test_js_string_longest_palindromic(void)
     expected = "baab";
     TEST_ASSERT_EQUAL_STRING_MESSAGE(expected, js_string_longest_palindromic(input), "abaabdfad input do not return proper output");
 }
+
+void test_jk_quick_sort(void)
+{
+    int test_input[10] = {5, 2, 8, 9, 5, 1, 2, 8, 9, 4};
+    int sorted_input[10] = {1, 2, 2, 4, 5, 5, 8, 8, 9, 9};
+    jk_quick_sort(test_input, 10);
+    TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(sorted_input, test_input, 10, "quick sort function is wrong");
+    int test_input2[7] = {10, 80, 30, 90, 40, 50, 70};
+    int sorted_input2[7] = {10, 30, 40, 50, 70, 80, 90};
+    jk_quick_sort(test_input2, 7);
+    TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(sorted_input2, test_input2, 7, "quick sort function is wrong");
+}
+
+void test_jk_insertion_sort(void)
+{
+    int test_input[10] = {5, 2, 8, 9, 5, 1, 2, 8, 9, 4};
+    int sorted_input[10] = {1, 2, 2, 4, 5, 5, 8, 8, 9, 9};
+    jk_insertion_sort(test_input, 10);
+    TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(sorted_input, test_input, 10, "quick sort function is wrong");
+    int test_input2[7] = {10, 80, 30, 90, 40, 50, 70};
+    int sorted_input2[7] = {10, 30, 40, 50, 70, 80, 90};
+    jk_insertion_sort(test_input2, 7);
+    TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(sorted_input2, test_input2, 7, "quick sort function is wrong");
+}
+
+void test_jk_bubble_sort(void)
+{
+    int test_input[10] = {5, 2, 8, 9, 5, 1, 2, 8, 9, 4};
+    int sorted_input[10] = {1, 2, 2, 4, 5, 5, 8, 8, 9, 9};
+    jk_bubble_sort(test_input, 10);
+    TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(sorted_input, test_input, 10, "quick sort function is wrong");
+    int test_input2[7] = {10, 80, 30, 90, 40, 50, 70};
+    int sorted_input2[7] = {10, 30, 40, 50, 70, 80, 90};
+    jk_bubble_sort(test_input2, 7);
+    TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(sorted_input2, test_input2, 7, "quick sort function is wrong");
+}
+
 int main()
 {
-    UNITY_BEGIN();
+    UNITY_BEGIN(); 
     RUN_TEST(test_jklib_version);
     RUN_TEST(test_integer_type_size);
     RUN_TEST(test_jk_swap_int32);
     RUN_TEST(test_jk_print_array);
     RUN_TEST(test_jk_insert_array);
     RUN_TEST(test_jk_delete_array);
-    RUN_TEST(test_js_string_longest_palindromic);
+    RUN_TEST(test_jk_string_longest_palindromic);
+    RUN_TEST(test_jk_quick_sort);
+    RUN_TEST(test_jk_insertion_sort);
+    RUN_TEST(test_jk_bubble_sort);
     UNITY_END();
     return 1;
 }

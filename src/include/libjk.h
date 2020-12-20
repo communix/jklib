@@ -21,6 +21,32 @@ uint32_t jk_get_version(void);
 void jk_swap_int32(int32_t *a, int32_t *b);
 
 /**
+ * @brief jk_quick_sort()
+ *
+ * @param in input array (int type)
+ * @param length length of the input array
+ * Sorted data is stored in the input array.
+ */
+void jk_quick_sort(int *in, int length);
+
+/**
+ * @brief jk_insertion_sort()
+ * 
+ * @param in input array (int type)
+ * @param length length of the input array
+ * Sorted data is stored in the input array.
+ */
+void jk_insertion_sort(int *in, int length);
+
+/**
+ * @brief jk_bubble_sort()
+ * 
+ * @param in input array (int type)
+ * @param length length of the input array
+ * Sorted data is stored in the input array.
+ */
+void jk_bubble_sort(int *in, int length);
+/**
  * @defgroup jk_array functions related to an array
  * @{
  */

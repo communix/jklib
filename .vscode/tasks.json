@@ -42,7 +42,7 @@
         {
             "label": "run unit test",
             "type": "shell",
-            "command": "./unit_test.exe",
+            "command": "./unit_test",
             "options": {
                 "cwd": "${workspaceFolder}/src/unit_test"
             },
