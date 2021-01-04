@@ -141,6 +141,19 @@ void test_jk_bubble_sort(void)
     TEST_ASSERT_EQUAL_INT_ARRAY_MESSAGE(sorted_input2, test_input2, 7, "quick sort function is wrong");
 }
 
+void test_jk_hash(void)
+{
+    int out_count = 0;
+    jk_hash_t *hash_table = jk_create_hash(100);
+    jk_add_hash(hash_table, 120, NULL);
+    jk_read_hash(hash_table, 120, &out_count);
+    TEST_ASSERT_EQUAL_INT32_MESSAGE(1, out_count, "Hash table count is wrong!!!");
+    jk_remove_hash(hash_table, 120);
+    jk_read_hash(hash_table, 120, &out_count);
+    TEST_ASSERT_EQUAL_INT32_MESSAGE(0, out_count, "Hash table count is wrong!!!");
+
+}
+ 
 int main()
 {
     UNITY_BEGIN(); 
@@ -154,6 +167,7 @@ int main()
     RUN_TEST(test_jk_quick_sort);
     RUN_TEST(test_jk_insertion_sort);
     RUN_TEST(test_jk_bubble_sort);
+    RUN_TEST(test_jk_hash);
     UNITY_END();
     return 1;
 }

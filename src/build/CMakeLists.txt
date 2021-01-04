@@ -23,6 +23,7 @@ SET (SRC_FILES
         ${CMAKE_SOURCE_DIR}/jk_common.c
         ${CMAKE_SOURCE_DIR}/jk_array.c
         ${CMAKE_SOURCE_DIR}/jk_string.c
+        ${CMAKE_SOURCE_DIR}/jk_hash.c
     )
 INCLUDE_DIRECTORIES (${CMAKE_SOURCE_DIR}/include)
 

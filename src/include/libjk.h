@@ -97,3 +97,77 @@ int8_t jk_delete_array(int32_t *arr, uint32_t length, uint32_t pos);
 char *js_string_longest_palindromic(char *input);
 
 /** @} */
+
+ /**
+ * @defgroup jk_hash functions
+ * @{
+ */
+
+#define JK_HASH_ADDED       0
+#define JK_HASH_UPDATED     1
+#define JK_HASH_FAIL        -1
+/**
+ * @brief jk_hash_element_t
+ * data structure for the hash element, it has original key and data
+ */
+typedef struct jk_hash_elements_s{
+    unsigned int key;
+    unsigned int count;
+    void *data;
+    struct jk_hash_elements_s *next;
+} jk_hash_element_t;
+
+/**
+ * @brief jk_hash_t
+ * Structure of the hash, it has the length of the hash table and array of the hash elements
+ */
+typedef struct {
+    jk_hash_element_t **hash;
+    int length;
+} jk_hash_t;
+
+/**
+ * @brief jk_create_hash()
+ * Create hash table
+ *
+ * @param hash_length length of the hash table
+ * @return jk_hash_t* address of the created hash table
+ */
+jk_hash_t *jk_create_hash(int hash_length);
+
+/**
+ * @brief jk_destroy_hash()
+ * 
+ * @param hash address of the hash table
+ */
+void jk_destroy_hash(jk_hash_t *hash);
+
+/**
+ * @brief jk_add_hash()
+ * Add data in the hash table
+ *
+ * @param hash address of the hash table
+ * @param key key of this data
+ * @param data data, it need to be converted to (void *)
+ * @return int -1 if new memory is not allocated. 0 otherwise
+ */
+int jk_add_hash(jk_hash_t *hash, int key, void *data);
+
+/**
+ * @brief jk_read_hash()
+ * 
+ * @param hash address of the hash table
+ * @param key key of the reading data
+ * @param count count of the key in the hash - output
+ * @return void* data pointer, NULL if the key is not found in the hash.
+ */
+void *jk_read_hash(jk_hash_t *hash, int key, int *count);
+
+/**
+ * @brief jk_remove_hash
+ * 
+ * @param hash address of the hash table
+ * @param key key of the reading data
+ */
+void jk_remove_hash(jk_hash_t *hash, int key);
+/** @} */
