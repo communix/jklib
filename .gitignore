@@ -9,3 +9,6 @@ cmake_install.cmake
 *.o
 *.bak
 *.exe
+/examples
+jklib_cmocka
+jklib_unity

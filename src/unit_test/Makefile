@@ -2,12 +2,15 @@ CC = gcc
 CFLAGS = -g
 
 # source files
-SRC = jklib_unit_test.c
+SRC_UNITY = jklib_unity.c
+SRC_CMOCKA = jklib_cmocka.c
 # include the herder files and library
 INCLUDES =-I../include -Ilibs/
-LIB = libs/libunity.a
-LIB += ../build/libjk.a
-all: $(SRC) $(LIB)
-	$(CC) -o unit_test $(CFLAGS) ${INCLUDES} $(SRC) $(LIB)
+LIB_UNITY = libs/libunity.a
+LIB_CMOCKA = libs/libcmocka-static.a
+LIB = ../build/libjk.a
+all: $(SRC_UNITY) $(LIB_UNITY) $(LIB)
+	$(CC) -o jklib_unity $(CFLAGS) ${INCLUDES} $(SRC_UNITY) $(LIB_UNITY) $(LIB)
+	$(CC) -o jklib_cmocka $(CFLAGS) ${INCLUDES} $(SRC_CMOCKA) $(LIB_CMOCKA) $(LIB)
 clean:
-	rm *.exe
+	rm jklib_unity jklib_cmocka
